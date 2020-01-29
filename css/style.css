@@ -1,0 +1,132 @@
+body {
+  background-color: #323133;
+  font-family: 'Comfortaa', cursive;
+  margin: 0;
+}
+body > a {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+}
+body .timer {
+  color: #fff;
+}
+/*Bottom Begin*/
+body .timer .begin {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/*Background*/
+body .timer .show {
+  position: fixed;
+  top: 50%;
+  left: 0px;
+  right: 0px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 100%;
+  -webkit-transition: height .5s ease;
+  transition: height .5s ease;
+}
+
+/*RGB Transition*/
+body .timer .show {
+  -webkit-animation: background 45s cubic-bezier(1,0,0,1) infinite;
+  animation: background 45s cubic-bezier(1,0,0,1) infinite;  
+}
+
+@-webkit-keyframes background {
+  0% { background-color: rgb(235, 143, 212); }
+  33% { background-color: rgb(141, 235, 137); }  
+  67% { background-color: #99f; }
+  100% { background-color: rgb(240, 108, 108); }
+}
+
+@keyframes background {
+  0% { background-color: rgb(235, 143, 212); }
+  33% { background-color: rgb(141, 235, 137); }  
+  67% { background-color: #99f; }
+  100% { background-color: rgb(240, 108, 108); }
+}
+
+/*End timer*/
+body .timer .show.timeup {
+  background-color: #D8334A;
+}
+/*The clock itself*/
+body .timer .timecontainer {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  right: 0px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+/*Position of the clock*/
+body .timer .timecontainer > .time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*Minutes switcher*/
+body .timer .timecontainer > .time .switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+/*Switcher*/
+body .timer .timecontainer > .time .switcher .time {
+  font-size: 25vw;
+}
+
+/*The switchers*/
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .up,
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .down {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 3vw;
+  cursor: pointer;
+}
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .up:before,
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .down:before {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border: 3vw solid transparent;
+}
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .up {
+  top: -2vw;
+}
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .up:before {
+  border-top: 0;
+  border-bottom-color: #fff;
+}
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .down {
+  bottom: 1vw;
+}
+body .timer .timecontainer > .time .switcher:not([type="none"]):not(.active) .down:before {
+  border-bottom: 0;
+  border-top-color: #fff;
+}
